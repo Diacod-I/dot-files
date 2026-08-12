@@ -62,8 +62,8 @@ Plus a **Nerd Font** for the prompt glyphs and eza icons (I use 0xProto).
 1) Symlink config files into place:
 
 ```sh
-git clone https://github.com/Diacod-I/dotfiles ~/dotfiles
-cd ~/dotfiles
+git clone https://github.com/Diacod-I/dot-files ~/dot-files
+cd ~/dot-files
 
 ln -sf "$PWD/zsh/.zshrc"              ~/.zshrc
 ln -sf "$PWD/starship/starship.toml" ~/.config/starship.toml
