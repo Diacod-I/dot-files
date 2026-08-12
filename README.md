@@ -2,7 +2,7 @@
 
 My terminal setup with **zsh + starship + tmux + Neovim** for MacOS (Apple Silicon). [Terminal background](https://unsplash.com/photos/silhouette-of-mountain-rGoxQdG6GXc) was given by [Patrick Hendry](https://unsplash.com/@worldsbetweenlines) through Unsplash.
 
-<img width="1470" height="919" alt="Screenshot 2026-08-13 at 2 40 06 AM" src="https://github.com/user-attachments/assets/990e73fe-3820-43cc-9692-9e511d1feebf" />
+<img width="1470" height="870" alt="Screenshot 2026-08-13 at 2 40 06 AM" src="https://github.com/user-attachments/assets/990e73fe-3820-43cc-9692-9e511d1feebf" />
 
 
 ---
