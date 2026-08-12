@@ -1,0 +1,17 @@
+# secrets
+*.local
+*.bak
+.env
+.env.*
+**/secrets*
+**/*token*
+**/*secret*
+**/.ssh/
+history.db
+*.session
+*.key
+
+# editor trash
+.DS_Store
+*.swp
+Thumbs.db

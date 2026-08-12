@@ -1,0 +1,63 @@
+add_newline = true
+command_timeout = 500
+
+format = """
+${custom.rule}\
+$cmd_duration\
+${custom.branchline}\
+$rust\
+$python\
+${custom.venvline}\
+${custom.dirline} $character"""
+
+# Full-width rule above each prompt, with a run counter (tmux-pane-aware, resize-safe)
+[custom.rule]
+when = "true"
+command = '''
+w=$(tmux display -p "#{pane_width}" 2>/dev/null || tput cols)
+n="#$(cat "$CMD_COUNT_FILE" 2>/dev/null || echo 0)"
+line=$(printf "%*s" "$w" "" | tr " " "─")
+keep=$(( w - ${#n} - 1 ))
+printf "%s %s" "$n" "${line:0:$keep}"
+'''
+format = "[$output](dimmed white)\n"
+shell = ["bash", "--noprofile", "--norc"]
+
+# Branch row — only inside a git repo; red flag when off main/master
+[custom.branchline]
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+command = 'b=$(git branch --show-current); if [ "$b" != main ] && [ "$b" != master ]; then printf "%s  \033[1;37;41m ⚠ OFF-MAIN \033[0m" "$b"; else printf "%s" "$b"; fi'
+format = "[\uf126](bold yellow)  [branch](bold yellow): $output\n"
+shell = ["bash", "--noprofile", "--norc"]
+
+# venv row — only when a virtualenv is active
+[custom.venvline]
+when = 'test -n "$VIRTUAL_ENV"'
+command = "basename \"$VIRTUAL_ENV\""
+format = "[\ue235](bold cyan)  [venv](bold cyan): [\\($output\\)](bold cyan)\n"
+shell = ["bash", "--noprofile", "--norc"]
+
+# dir row — repo-relative path inside a repo, else path from ~
+[custom.dirline]
+when = "true"
+command = 'r=$(git rev-parse --show-toplevel 2>/dev/null); if [ -n "$r" ]; then echo "  $(basename "$r")${PWD#$r}"; else echo "  ${PWD/#$HOME/~}"; fi'
+format = "[$output](bold purple)"
+shell = ["bash", "--noprofile", "--norc"]
+
+[character]
+success_symbol = "[✔ >](bold green)"
+error_symbol = "[✘ >](bold red)"
+
+# language version rows (auto-hide outside the relevant project)
+[rust]
+format = "[\ue7a8](bold red)  [rust](bold red): $version\n"
+
+[python]
+format = "[\ue235](bold #4B8BBE)  [py](bold #4B8BBE): $version\n"
+
+[docker_context]
+format = "[\uf308](bold 39)  [docker](bold 39): [$context](bold 39)\n"
+
+[cmd_duration]
+min_time = 500
+format = "[took $duration](dimmed yellow)  \n"
