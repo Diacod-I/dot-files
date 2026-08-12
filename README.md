@@ -62,7 +62,7 @@ Plus a **Nerd Font** for the prompt glyphs and eza icons (I use 0xProto).
 1) Symlink config files into place:
 
 ```sh
-git clone https://github.com/<you>/dotfiles ~/dotfiles
+git clone https://github.com/Diacod-I/dotfiles ~/dotfiles
 cd ~/dotfiles
 
 ln -sf "$PWD/zsh/.zshrc"              ~/.zshrc
