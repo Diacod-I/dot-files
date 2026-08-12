@@ -1,4 +1,4 @@
-# dotfiles
+# dot-files
 
 My terminal setup **zsh + starship + tmux + Neovim** for MacOS (Apple Silicon).
 
