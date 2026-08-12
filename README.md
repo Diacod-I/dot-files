@@ -29,7 +29,7 @@ The prompt is displayed a column format unlike most other prompts where every de
   saved me from committing to the wrong branch more than once).
 - **venv row** shows only when a virtualenv is active.
 - **Language rows** (`rust`, `py`) auto-hide outside the relevant project.
-- Full-width rule with a run counter horizontal rule, so each command's
+- Full-width rule with a run counter, so each command's
   output is visually bracketed. It's **tmux-pane-aware and resize-safe** 
   (measures `#{pane_width}` per draw), and it carries a command counter (`#7`) that resets with `cls`.
 
