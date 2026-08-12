@@ -1,6 +1,6 @@
 # dot-files
 
-My terminal setup **zsh + starship + tmux + Neovim** for MacOS (Apple Silicon).
+My terminal setup with **zsh + starship + tmux + Neovim** for MacOS (Apple Silicon).
 
 <img width="1470" height="919" alt="Screenshot 2026-08-13 at 2 40 06 AM" src="https://github.com/user-attachments/assets/990e73fe-3820-43cc-9692-9e511d1feebf" />
 
